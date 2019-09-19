@@ -8,7 +8,9 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Dockerfile for `latest`
+- Dockerfile for `latest` (base image version `7.3.2`)
+- Dockerfile for `7` (base image version `7.3.2`)
+- Dockerfile for `6` (base image version `6.8.3`)
 
 [keepachangelog]:https://keepachangelog.com/en/1.0.0/
 [semver]:https://semver.org/spec/v2.0.0.html

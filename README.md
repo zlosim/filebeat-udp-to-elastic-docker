@@ -21,9 +21,15 @@ Docker image with pre-configured Filebeat for collecting event on UDP port, deco
 Tag name | Details                    | Full image name  | Dockerfile
 :------: | :------------------------: | :--------------: | :--------:
 `latest` | ![Size][badge_size_latest] | `512k/filebeat-udp-to-elastic:latest` | [link][dockerfile_latest]
+`7`      | ![Size][badge_size_7]      | `512k/filebeat-udp-to-elastic:7`      | [link][dockerfile_7]
+`6`      | ![Size][badge_size_6]      | `512k/filebeat-udp-to-elastic:6`      | [link][dockerfile_6]
 
 [badge_size_latest]:https://images.microbadger.com/badges/image/512k/filebeat-udp-to-elastic:latest.svg
+[badge_size_7]:https://images.microbadger.com/badges/image/512k/filebeat-udp-to-elastic:7.svg
+[badge_size_6]:https://images.microbadger.com/badges/image/512k/filebeat-udp-to-elastic:6.svg
 [dockerfile_latest]:https://github.com/512k/filebeat-udp-to-elastic-docker/blob/image-latest/Dockerfile
+[dockerfile_7]:https://github.com/512k/filebeat-udp-to-elastic-docker/blob/image-7/Dockerfile
+[dockerfile_6]:https://github.com/512k/filebeat-udp-to-elastic-docker/blob/image-6/Dockerfile
 
 ## Allowed environment variables
 
