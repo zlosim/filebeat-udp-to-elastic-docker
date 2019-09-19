@@ -52,25 +52,25 @@ Variable name | Default value | Сonfig equivalent | Description
 
 ### Processors variables
 
-Variable name | Default value | Сonfig equivalent | Description
-:-----------: | :-----------: | :---------------: | :---------:
-`PROCESSORS_DECODE_FIELDS` | `message` | `processors.decode_json_fields.fields` | The fields containing `JSON` strings to decode. Support multiple fields, in format `field-name-1,field-name-2`
-`PROCESSORS_DECODE_PROCESS_ARRAY` | `false` | `processors.decode_json_fields.process_array` | A boolean that specifies whether to process arrays
-`PROCESSORS_DECODE_MAX_DEPTH` | `1` | `processors.decode_json_fields.max_depth` | The maximum parsing depth
-`PROCESSORS_DECODE_TARGET` | `-` | `processors.decode_json_fields.target` | The field under which the decoded JSON will be written. By default the decoded JSON object replaces the string field from which it was read. To merge the decoded JSON fields into the root of the event, specify `target` with an empty string (`target: ""`). Note that the `null` value (`target:`) is treated as if the field was not set at all
-`PROCESSORS_DECODE_OVERWRITE_KEYS` | `false` | `processors.decode_json_fields.overwrite_keys` | A boolean that specifies whether keys that already exist in the event are overwritten by keys from the decoded JSON object
-`PROCESSORS_DROP_FIELDS` | `message` | `processors.decode_json_fields.fields` | Specifies which fields to drop from event. Support multiple fields, in format `field-name-1,field-name-2`
+Variable name | Default value | Description
+:-----------: | :-----------: | :---------:
+`PROCESSORS_DECODE_FIELDS` | `message` | The fields containing `JSON` strings to decode. Support multiple fields, in format `field-name-1,field-name-2` _(config equivalent: `processors.decode_json_fields.fields`)_
+`PROCESSORS_DECODE_PROCESS_ARRAY` | `false` | A boolean that specifies whether to process arrays _(config equivalent: `processors.decode_json_fields.process_array`)_
+`PROCESSORS_DECODE_MAX_DEPTH` | `1` | The maximum parsing depth _(config equivalent: `processors.decode_json_fields.max_depth`)_
+`PROCESSORS_DECODE_TARGET` | `-` | The field under which the decoded JSON will be written. By default the decoded JSON object replaces the string field from which it was read. To merge the decoded JSON fields into the root of the event, specify `target` with an empty string (`target: ""`). Note that the `null` value (`target:`) is treated as if the field was not set at all _(config equivalent: `processors.decode_json_fields.target`)_
+`PROCESSORS_DECODE_OVERWRITE_KEYS` | `false` | A boolean that specifies whether keys that already exist in the event are overwritten by keys from the decoded JSON object _(config equivalent: `processors.decode_json_fields.overwrite_keys`)_
+`PROCESSORS_DROP_FIELDS` | `message` | Specifies which fields to drop from event. Support multiple fields, in format `field-name-1,field-name-2` _(config equivalent: `processors.decode_json_fields.fields`)_
 
 ### Output Elasticsearch variables
 
-Variable name | Default value | Сonfig equivalent | Description
-:-----------: | :-----------: | :---------------: | :---------:
-`ELASTIC_HOSTS` | `elasticsearch:9200` | `output.elasticsearch.hosts` | The list of Elasticsearch nodes to connect to. The events are distributed to these nodes in round robin order. If one node becomes unreachable, the event is automatically sent to another node. Each Elasticsearch node can be defined as a `URL` or `IP:PORT`. For example: `http://192.15.3.2`, `https://es.found.io:9230` or `192.24.3.2:9300`. If no port is specified, `9200` is used
-`ELASTIC_PROTOCOL` | `http` | `output.elasticsearch.protocol` |  The name of the protocol Elasticsearch is reachable on. The options are: `http` or `https`. However, if you specify a URL for `output.elasticsearch.hosts`, the value of `protocol` is overridden by whatever scheme you specify in the URL
-`ELASTIC_USERNAME` | `-` | `output.elasticsearch.username` | The basic authentication username for connecting to Elasticsearch
-`ELASTIC_PASSWORD` | `-` | `output.elasticsearch.password` | The basic authentication username for connecting to Elasticsearch
-`ELASTIC_INDEX_PREFIX` | `filebeat` | `output.elasticsearch.index` | Prefix for index
-`ELASTIC_INDEX_DATEFORMAT` | `yyyy.MM.dd` | `output.elasticsearch.index` | Postfix for index. Only date format without `+`
+Variable name | Default value | Description
+:-----------: | :-----------: | :---------:
+`ELASTIC_HOSTS` | `elasticsearch:9200` | The list of Elasticsearch nodes to connect to. The events are distributed to these nodes in round robin order. If one node becomes unreachable, the event is automatically sent to another node. Each Elasticsearch node can be defined as a `URL` or `IP:PORT`. For example: `http://192.15.3.2`, `https://es.found.io:9230` or `192.24.3.2:9300`. If no port is specified, `9200` is used _(config equivalent: `output.elasticsearch.hosts`)_
+`ELASTIC_PROTOCOL` | `http` |  The name of the protocol Elasticsearch is reachable on. The options are: `http` or `https`. However, if you specify a URL for `output.elasticsearch.hosts`, the value of `protocol` is overridden by whatever scheme you specify in the URL _(config equivalent: `output.elasticsearch.protocol`)_
+`ELASTIC_USERNAME` | `-` | The basic authentication username for connecting to Elasticsearch _(config equivalent: `output.elasticsearch.username`)_
+`ELASTIC_PASSWORD` | `-` | The basic authentication username for connecting to Elasticsearch _(config equivalent: `output.elasticsearch.password`)_
+`ELASTIC_INDEX_PREFIX` | `filebeat` | Prefix for index _(config equivalent: `output.elasticsearch.index`)_
+`ELASTIC_INDEX_DATEFORMAT` | `yyyy.MM.dd` | Postfix for index. Only date format without `+` _(config equivalent: `output.elasticsearch.index`)_
 
 > Index template looks like `${ELASTIC_INDEX_PREFIX}-%{+${ELASTIC_INDEX_DATEFORMAT}}`
 
