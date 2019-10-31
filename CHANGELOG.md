@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## 19.10.31
+
+### Fixed
+
+- Environment variable `ELASTIC_INDEX_DATEFORMAT` set only default value ([PR1], [PR2], [PR3]) for `6`, `7` and `latest` images
+
+[PR1]:https://github.com/512k/filebeat-udp-to-elastic-docker/pull/1
+[PR2]:https://github.com/512k/filebeat-udp-to-elastic-docker/pull/2
+[PR3]:https://github.com/512k/filebeat-udp-to-elastic-docker/pull/3
+
 ## 19.9.19
 
 ### Added
