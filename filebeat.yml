@@ -24,7 +24,7 @@ output.elasticsearch:
   protocol: "${ELASTIC_PROTOCOL:http}"
   username: "${ELASTIC_USERNAME:''}"
   password: "${ELASTIC_PASSWORD:''}"
-  index: "${ELASTIC_INDEX_PREFIX:filebeat}-%{+${ELASTIC_INDEX_DATEFORMAT:+yyyy.MM.dd}}"
+  index: "${ELASTIC_INDEX_PREFIX:filebeat}-%{+${ELASTIC_INDEX_DATEFORMAT:yyyy.MM.dd}}"
 
 setup.template:
   index: "${ELASTIC_INDEX_PREFIX:filebeat}-%{+${ELASTIC_INDEX_DATEFORMAT:yyyy.MM.dd}}"
