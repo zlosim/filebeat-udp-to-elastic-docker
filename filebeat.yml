@@ -18,3 +18,8 @@ output.elasticsearch:
 logging:
   metrics:
     enabled: false
+
+setup.template:
+  index: "${ELASTIC_INDEX:filebeat}"
+  pattern: "${ELASTIC_INDEX:filebeat}-*"
+  enabled: false
