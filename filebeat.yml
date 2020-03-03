@@ -14,3 +14,7 @@ output.elasticsearch:
   username: "${ELASTIC_USERNAME:''}"
   password: "${ELASTIC_PASSWORD:''}"
   index: "${ELASTIC_INDEX:filebeat}"
+
+logging:
+  metrics:
+    enabled: false
