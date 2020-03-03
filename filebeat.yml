@@ -5,28 +5,12 @@ queue.mem:
 
 filebeat.inputs:
 - type: udp
-  max_message_size: ${UDP_MAX_MESSAGE_SIZE:10KiB}
+  max_message_size: ${UDP_MAX_MESSAGE_SIZE:56KiB}
   host: ":${UDP_LISTEN_PORT:5160}"
-
-processors:
-  - decode_json_fields:
-      fields: "${PROCESSORS_DECODE_FIELDS:message}"
-      process_array: ${PROCESSORS_DECODE_PROCESS_ARRAY:false}
-      max_depth: ${PROCESSORS_DECODE_MAX_DEPTH:1}
-      target: "${PROCESSORS_DECODE_TARGET:''}"
-      overwrite_keys: ${PROCESSORS_DECODE_OVERWRITE_KEYS:false}
-  - drop_fields:
-      fields: "${PROCESSORS_DROP_FIELDS:message}"
-
 
 output.elasticsearch:
   hosts: "${ELASTIC_HOSTS:elasticsearch:9200}"
   protocol: "${ELASTIC_PROTOCOL:http}"
   username: "${ELASTIC_USERNAME:''}"
   password: "${ELASTIC_PASSWORD:''}"
-  index: "${ELASTIC_INDEX_PREFIX:filebeat}-%{+${ELASTIC_INDEX_DATEFORMAT:yyyy.MM.dd}}"
-
-setup.template:
-  index: "${ELASTIC_INDEX_PREFIX:filebeat}-%{+${ELASTIC_INDEX_DATEFORMAT:yyyy.MM.dd}}"
-  pattern: "${ELASTIC_INDEX_PREFIX:filebeat}-*"
-  enabled: false
+  index: "${ELASTIC_INDEX:filebeat}"
