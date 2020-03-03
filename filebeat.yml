@@ -19,6 +19,16 @@ logging:
   metrics:
     enabled: false
 
+processors:
+  - decode_json_fields:
+      fields: "${PROCESSORS_DECODE_FIELDS:message}"
+      process_array: ${PROCESSORS_DECODE_PROCESS_ARRAY:false}
+      max_depth: ${PROCESSORS_DECODE_MAX_DEPTH:1}
+      target: "${PROCESSORS_DECODE_TARGET:''}"
+      overwrite_keys: ${PROCESSORS_DECODE_OVERWRITE_KEYS:false}
+  - drop_fields:
+      fields: "${PROCESSORS_DROP_FIELDS:message}"
+
 setup.template:
   index: "${ELASTIC_INDEX:filebeat}"
   pattern: "${ELASTIC_INDEX:filebeat}-*"
